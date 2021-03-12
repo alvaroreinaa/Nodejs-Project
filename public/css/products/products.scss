@@ -1,0 +1,65 @@
+@import "../global";
+
+.main {
+    &__title {
+        font-family: $title_font;
+        font-weight: bold;
+        font-size: 28px;
+        text-align: center;
+        margin: 25px;
+    }
+
+    &__container-inputs {
+        text-align: center;
+    }
+
+    &__filter-field {
+        font-family: $content_font;
+        font-weight: bold;
+        text-align: center;
+        font-size: 20px;
+        margin-bottom: 0px;
+    }
+
+    &__input-name {
+        @extend %input;
+        width: 250px;
+    }
+    
+    &__container-inputs-price {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    &__input-price {
+        @extend %input;
+        width: 150px;
+    }
+
+    &__button-search {
+        @extend %button;
+        margin-bottom: 10px;
+    }
+
+    &__products{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+
+    &__pagination {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    &__button-pagination {
+        @extend %button;
+        width: 100px;
+        margin-bottom: 15px;
+    }
+}
+
+

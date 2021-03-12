@@ -1,0 +1,16 @@
+@import "../global";
+
+.main {
+    &__product-description-title {
+        margin-top: 0px;
+    }
+
+    &__product-description {
+        font-family: $content_font;
+        font-size: 20px;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        margin-left: 10px;
+        margin-right: 10px;   
+    }
+}

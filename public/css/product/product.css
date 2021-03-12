@@ -1,0 +1,140 @@
+@import url("https://fonts.googleapis.com/css2?family=Merriweather+Sans&family=Mukta:wght@300&display=swap");
+html, body {
+  margin: 0px;
+  padding: 0px;
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: whitesmoke;
+}
+
+.header__logo {
+  width: 100%;
+  height: 100px;
+}
+
+.navbar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  margin-top: 10px;
+}
+
+.navbar__menu {
+  font-family: "Merriweather Sans", sans-serif;
+  color: black;
+  font-weight: bold;
+  margin: 4px;
+  padding: 4px;
+  text-decoration: none;
+  font-size: 18px;
+  border-bottom: 2px solid transparent;
+  -webkit-transition: border-bottom-color 0.5s ease-out;
+  transition: border-bottom-color 0.5s ease-out;
+}
+
+.navbar__menu:hover {
+  cursor: pointer;
+  border-bottom-color: black;
+}
+
+.main {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 auto;
+          flex: 1 0 auto;
+}
+
+.main__product {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+}
+
+.main__product-name, .main__product-price, .main__product-description-title {
+  font-family: "Mukta", sans-serif;
+  font-weight: bold;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.main__product-price {
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+
+.main__product-image {
+  width: 275px;
+  height: 250px;
+}
+
+.main__product-image:hover {
+  cursor: pointer;
+}
+
+.footer {
+  background-color: whitesmoke;
+  text-align: center;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+}
+
+.footer__author {
+  font-family: "Mukta", sans-serif;
+  font-style: italic;
+  font-size: 17px;
+}
+
+.main__product-description-title {
+  margin-top: 0px;
+}
+
+.main__product-description {
+  font-family: "Mukta", sans-serif;
+  font-size: 20px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+/*# sourceMappingURL=product.css.map */

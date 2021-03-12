@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <![endif]-->
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title> Shopping </title>
+    <meta name="description" content="E-Commerce shop">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../css/products/products.css">
+    <link rel="icon" type="image/svg" href="../images/logo.svg" />
+    <script src=""></script>
+</head>
+
+<body>
+    <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+    <header class="header">
+        <img class="header__logo" src="../images/logo.svg" alt="Website Log">
+    </header>
+
+    <nav class="navbar">     
+        <a class="navbar__menu" href="/products/1"> Products </a>
+        <a class="navbar__menu" href=""> Login </a>
+        <a class="navbar__menu" href=""> Register </a>
+    </nav>
+
+    <main class="main">
+        <h1 class="main__title"> Welcome to our shop </h1>
+
+        <div class="main__container-inputs">
+            <p class="main__filter-field"> Search by product name </p>
+            <input class="main__input-name" type="text" placeholder="Product name">
+        </div>
+        
+        <div class="main__container-inputs">
+            <p class="main__filter-field"> Search by price </p>
+            <div class="main__container-inputs-price">   
+                <input class="main__input-price" type="text" placeholder="Min Price">
+                <input class="main__input-price" type="text" placeholder="Max Price">
+            </div>
+        </div>
+
+        <div class="main__container-inputs">
+            <button class="main__button-search"> Search </button>
+        </div>
+
+        <div class="main__products">
+            {{#each products}}
+            <div class="main__product">
+                <p class="main__product-name"> {{ this.name }} </p>
+                <a href="/product/{{ this.id }}"><img class="main__product-image" src="{{ this.image }}"></a>
+                <p class="main__product-price"> Price: {{ this.price }} &euro;</p>
+            </div>
+            {{/each}}
+        </div>
+
+        <div class="main__pagination">
+            <button class="main__button-pagination"> PREVIOUS </button>
+            <button class="main__button-pagination"> NEXT </button>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p class="footer__author"> Web Made by Alvaro Reina </p>
+    </footer>
+</body>
+
+</html>
