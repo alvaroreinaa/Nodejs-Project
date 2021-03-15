@@ -11,8 +11,9 @@
     <title> Shopping </title>
     <meta name="description" content="E-Commerce shop">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="../css/product/product.css">
-    <link rel="icon" type="image/svg" href="../images/logo.svg" />
+    <link rel="stylesheet" href="/css/register/register.css">
+    <link rel="icon" type="image/svg" href="/images/logo.svg" />
+    <script src=""></script>
 </head>
 
 <body>
@@ -20,7 +21,7 @@
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
     <header class="header">
-        <img class="header__logo" src="../images/logo.svg" alt="Website Log">
+        <img class="header__logo" src="/images/logo.svg" alt="Website Log">
     </header>
 
     <nav class="navbar">     
@@ -30,15 +31,23 @@
     </nav>
 
     <main class="main">
-        {{#if this.product}}
-        <div class="main__product">
-            <p class="main__product-name"> {{ this.product.name }} </p>
-            <a href="/product/{{ this.id }}"><img class="main__product-image" src="{{ this.product.image }}"></a>
-            <p class="main__product-price"> Price: {{ this.product.price }} &euro;</p>
-            <p class="main__product-description-title"> Description </p>
-            <p class="main__product-description"> {{ this.product.description }}</p>
-        </div>
-        {{/if}}
+        <form class="main__form" action="/register_user" method="post">
+            <label class="main__form-label" for="name"> Name </label>
+            <input class="main__form-input" type="text" id="name" name="name" required maxlength="20">
+
+            <label class="main__form-label" for="surname"> Surname </label>
+            <input class="main__form-input" type="text" id="surname" name="surname" required maxlength="20">
+
+            <label class="main__form-label" for="email"> Email </label>
+            <input class="main__form-input" type="email" id="email" name="email" required>
+
+            <label class="main__form-label" for="password"> Password </label>
+            <input class="main__form-input" type="password" id="password" name="password" required minlength="8">
+
+            <div>
+                <button class="main__form-submit" type="submit"> Register </button>
+            </div>
+        </form>
     </main>
 
     <footer class="footer">

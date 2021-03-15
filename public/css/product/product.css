@@ -117,6 +117,7 @@ body {
   text-align: center;
   -ms-flex-negative: 0;
       flex-shrink: 0;
+  margin-top: 10px;
 }
 
 .footer__author {

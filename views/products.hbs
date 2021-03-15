@@ -11,9 +11,9 @@
     <title> Shopping </title>
     <meta name="description" content="E-Commerce shop">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="../css/products/products.css">
-    <link rel="icon" type="image/svg" href="../images/logo.svg" />
-    <script src=""></script>
+    <link rel="stylesheet" href="/css/products/products.css">
+    <link rel="icon" type="image/svg" href="/images/logo.svg" />
+    <script src="/js/products.js"></script>
 </head>
 
 <body>
@@ -21,49 +21,65 @@
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
     <header class="header">
-        <img class="header__logo" src="../images/logo.svg" alt="Website Log">
+        <img class="header__logo" src="/images/logo.svg" alt="Website Log">
     </header>
 
     <nav class="navbar">     
         <a class="navbar__menu" href="/products/1"> Products </a>
-        <a class="navbar__menu" href=""> Login </a>
-        <a class="navbar__menu" href=""> Register </a>
+        <a class="navbar__menu" href="/login"> Login </a>
+        <a class="navbar__menu" href="/register"> Register </a>
     </nav>
 
     <main class="main">
-        <h1 class="main__title"> Welcome to our shop </h1>
+        {{#if this.productsSearchByName}}
+            <h1 class="main__title"> Results for: {{ this.name }} </h1>
+        {{/if}}
+        {{#if this.productsSearchByPrice}}
+            <h1 class="main__title"> Results by price range: {{ this.lowerPrice }}&euro; - {{ this.higherPrice }}&euro;</h1>
+        {{/if}}
 
-        <div class="main__container-inputs">
-            <p class="main__filter-field"> Search by product name </p>
-            <input class="main__input-name" type="text" placeholder="Product name">
-        </div>
-        
-        <div class="main__container-inputs">
-            <p class="main__filter-field"> Search by price </p>
-            <div class="main__container-inputs-price">   
-                <input class="main__input-price" type="text" placeholder="Min Price">
-                <input class="main__input-price" type="text" placeholder="Max Price">
+        {{#if this.productsList}}
+            <h1 class="main__title"> Welcome to our shop </h1>
+
+            <div class="main__container-inputs">
+                <p class="main__filter-field"> Search by product name </p>
+                <input class="main__input-name" id="productName" type="text" placeholder="Product name">
             </div>
-        </div>
+        
+            <div class="main__container-inputs">
+                <p class="main__filter-field"> Search by price </p>
+                <div class="main__container-inputs-price">   
+                    <input class="main__input-price" id="lowerPriceProduct" type="text" placeholder="Min Price">
+                    <input class="main__input-price" id="higherPriceProduct" type="text" placeholder="Max Price">
+                </div>
+            </div>
 
-        <div class="main__container-inputs">
-            <button class="main__button-search"> Search </button>
-        </div>
+            <div class="main__container-inputs">
+                <button class="main__button-search" id="search"> Search </button>
+            </div>
+        {{/if}}
 
         <div class="main__products">
-            {{#each products}}
-            <div class="main__product">
-                <p class="main__product-name"> {{ this.name }} </p>
-                <a href="/product/{{ this.id }}"><img class="main__product-image" src="{{ this.image }}"></a>
-                <p class="main__product-price"> Price: {{ this.price }} &euro;</p>
-            </div>
-            {{/each}}
+            {{#if products}}
+                {{#each products}}
+                <div class="main__product">
+                    <p class="main__product-name"> {{ this.name }} </p>
+                    <a href="/product/{{ this.id }}"><img class="main__product-image" src="{{ this.image }}"></a>
+                    <p class="main__product-price"> Price: {{ this.price }} &euro;</p>
+                </div>
+                {{/each}}
+            {{else}}
+                <h1 class="main__title"> No products found </h1>
+            {{/if}}
         </div>
 
-        <div class="main__pagination">
-            <button class="main__button-pagination"> PREVIOUS </button>
-            <button class="main__button-pagination"> NEXT </button>
-        </div>
+        {{#if this.productsList}}
+            <div class="main__pagination">
+                <button class="main__button-pagination" id="previous_page"> PREVIOUS </button>
+                <button class="main__button-pagination" id="next_page"> NEXT </button>
+            </div>
+        {{/if}}
+
     </main>
 
     <footer class="footer">
