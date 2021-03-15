@@ -31,7 +31,7 @@
     </nav>
 
     <main class="main">
-        <form class="main__form" action="/register_user" method="post">
+        <form class="main__form" action="/register" method="post">
             <label class="main__form-label" for="name"> Name </label>
             <input class="main__form-input" type="text" id="name" name="name" required maxlength="20">
 
@@ -47,6 +47,10 @@
             <div>
                 <button class="main__form-submit" type="submit"> Register </button>
             </div>
+
+            {{#if error}}
+                <p class="main__error">{{error}}</p>
+            {{/if}}
         </form>
     </main>
 
