@@ -11,7 +11,7 @@
     <title> Shopping </title>
     <meta name="description" content="E-Commerce shop">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="/css/login/login.css">
+    <link rel="stylesheet" href="/css/cart/cart.css">
     <link rel="icon" type="image/svg" href="/images/logo.svg" />
     <script src=""></script>
 </head>
@@ -29,23 +29,18 @@
         <a class="navbar__menu" href="/login"> Login </a>
         <a class="navbar__menu" href="/register"> Register </a>
     </nav>
-    
+
     <main class="main">
-        <form class="main__form" action="/login" method="post">
-            <label class="main__form-label" for="email"> Email </label>
-            <input class="main__form-input" type="email" id="email" name="email" required>
-
-            <label class="main__form-label" for="password"> Password </label>
-            <input class="main__form-input" type="password" id="password" name="password" required minlength="6">
-
-            <div>
-                <button class="main__form-submit" type="submit"> Login </button>
+        <h1 class="main__title"> Your cart </h1>
+        <div class="main__cart">
+            {{#each userCart}}
+            <div class="main__product">
+                {{ this.image }}
+                {{ this.name }}
+                {{ this.price }}
             </div>
-
-            {{#if error}}
-                <p class="main__error">{{error}}</p>
-            {{/if}}
-        </form>
+            {{/each}}
+        </div>
     </main>
 
     <footer class="footer">

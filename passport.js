@@ -30,6 +30,7 @@ passport.use(
                     surname: req.body.surname,
                     email: email,
                     password: hash,
+                    cart: [],
                 });
 
                 const savedUser = await newUser.save();
@@ -40,4 +41,30 @@ passport.use(
             }
         }
     )
-)
+);
+
+passport.use(
+    'login',
+    new LocalStrategy(
+        {
+            usernameField: 'email',
+            passwordField: 'password',
+            passReqToCallback: true,
+        },
+        async (req, email, password, done) => {
+            try {
+                const currentUser = await User.findOne({ email: email });
+                const checkPassword = await bcrypt.compare(password, currentUser.password);
+
+                if (!currentUser || !checkPassword) {
+                    const error = new Error('Incorrect email or password');
+                    return done(error);
+                }
+
+                done(null, currentUser);
+            } catch (err) {
+                return done(err);
+            }
+        }
+    )
+);

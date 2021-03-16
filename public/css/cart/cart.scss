@@ -1,0 +1,11 @@
+@import '../global';
+
+.main {
+    &__title {
+        font-family: $title_font;
+        font-weight: bold;
+        font-size: 28px;
+        text-align: center;
+        margin: 25px;
+    }
+}

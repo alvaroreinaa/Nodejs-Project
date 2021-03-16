@@ -5,6 +5,7 @@ const users = [
         surname: 'admin',
         email: 'admin@gmail.com',
         password: 'abc123..',
+        cart: [],
     },
     {
         type: 'client',
@@ -12,6 +13,7 @@ const users = [
         surname: 'Reina',
         email: 'alvaroreina@gmail.com',
         password: 'unknown123',
+        cart: []
     }
 ]
 

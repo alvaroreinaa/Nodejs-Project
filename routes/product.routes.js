@@ -34,7 +34,7 @@ router.get('/product/:id', async (req, res, next) => {
 });
 
 // Show the products filter by name
-router.get('/searched_products/:name', async (req, res, next) => {
+router.get('/searched-products/:name', async (req, res, next) => {
     const name = req.params.name;
 
     try {
@@ -51,7 +51,7 @@ router.get('/searched_products/:name', async (req, res, next) => {
 });
 
 // Show the products filter by price
-router.get('/searched_products/:lowerPrice/:higherPrice', async (req, res, next) => {
+router.get('/searched-products/:lowerPrice/:higherPrice', async (req, res, next) => {
     const lowerPrice = req.params.lowerPrice;
     const higherPrice = req.params.higherPrice;
 

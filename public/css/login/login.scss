@@ -31,4 +31,11 @@
         width: 125px;
         margin-top: 30px;
     }
+
+    &__error {
+        font-family: $content_font;
+        font-size: 22px;
+        color: red;
+        font-weight: bold;
+    }
 }
