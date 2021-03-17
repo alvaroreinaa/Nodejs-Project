@@ -34,11 +34,11 @@ router.get('/product/:id', async (req, res, next) => {
 });
 
 // Show the products filter by name
-router.get('/searched-products/:name', async (req, res, next) => {
+router.get('/searched_products/:name', async (req, res, next) => {
     const name = req.params.name;
 
     try {
-        const products = await Product.find({ name: name });
+        const products = await Product.find({ name: new RegExp('\\b' + name + '\\b', 'i'), name: { $regex: name, $options: "i"} });
 
         if (products) {
             return res.status(200).render('products', { products, name : name, productsSearchByName: true });
@@ -51,7 +51,7 @@ router.get('/searched-products/:name', async (req, res, next) => {
 });
 
 // Show the products filter by price
-router.get('/searched-products/:lowerPrice/:higherPrice', async (req, res, next) => {
+router.get('/searched_products/:lowerPrice/:higherPrice', async (req, res, next) => {
     const lowerPrice = req.params.lowerPrice;
     const higherPrice = req.params.higherPrice;
 

@@ -19,15 +19,9 @@ router.post('/login', async (req, res, next) => {
         passport.authenticate('login', (error, user) => {
             if (error) {
                 return res.render('login', { error: error.message });
-            }
+            }                
             
-            req.session.save((err) => {
-                if (err) {
-                    return next(err);
-                }
-                return res.redirect('/products/1');
-            });
-            
+            return res.redirect('/products/1');
         })(req);
     } catch (err) {
         next(err);
