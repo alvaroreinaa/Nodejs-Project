@@ -4,7 +4,8 @@ const router = express.Router();
 
 router.get('/cart', async (req, res, next) => {
     try {
-        const user = await User.findById('6051e1161700b33504ed9a44').populate('cart');
+        const userId = req.user;
+        const user = await User.findById(userId).populate('cart');
         const userCart = user.cart;
         return res.status(200).render('cart', { userCart });
     } catch (err) {
@@ -12,10 +13,9 @@ router.get('/cart', async (req, res, next) => {
     }
 });
 
-
 router.put('/add-product/:productId', async (req, res, next) => {
     try {
-        const userId = '6050960b1a2543356c58c324';
+        const userId = req.user;
         const productId = req.params.productId;
         
         const updatedCart = await User.findByIdAndUpdate(
@@ -25,6 +25,15 @@ router.put('/add-product/:productId', async (req, res, next) => {
         );
 
         return res.status(200).json(updatedCart);        
+    } catch (err) {
+        next(err);
+    }
+});
+
+router.get('/logout', async (req, res, next) => {
+    try {
+        req.logout();
+        return res.status(200).render('login');
     } catch (err) {
         next(err);
     }

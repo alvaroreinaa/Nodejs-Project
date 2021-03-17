@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Function that add the product to the user cart
 function addProductToCart() {
+    console.log(URL_ADD_PRODUCT + productId);
     fetch(URL_ADD_PRODUCT + productId, {
         method: 'PUT'
     }).then( () => {

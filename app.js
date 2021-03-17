@@ -7,24 +7,35 @@ const PORT = process.env.PORT || 3000;
 
 require('./db.js');
 
-const passport = require('passport');
-require('./passport');
-app.use(passport.initialize());
-
 const path = require('path');
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
+app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json())
-app.use(express.urlencoded({ extended: false }));
 
+const passport = require('passport');
+require('./passport');
 
+const cookieParser = require('cookie-parser');
+const session = require('express-session');
+app.use(cookieParser());
+app.use(session({ 
+    secret: 'keyboard cat', 
+    resave: false, 
+    saveUninitialized: false
+}));
+app.use(passport.initialize());
+app.use(passport.session());
+
+const authMiddleware = require('./middlewares/auth.middleware');
 const productRoutes = require('./routes/product.routes');
 const userRoutes = require('./routes/user.routes');
 const cartRoutes = require('./routes/cart.routes');
+
 app.use('/', productRoutes);
 app.use('/', userRoutes);
-app.use('/', cartRoutes);
+app.use('/', [authMiddleware.isAuthenticated], cartRoutes);
 
 app.use('*', (req, res, next) => {
     const error = new Error('Route not found');

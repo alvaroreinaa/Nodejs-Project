@@ -1,6 +1,5 @@
 const express = require('express');
 const passport = require('passport');
-const User = require('../models/User');
 const router = express.Router();
 
 // Show the login form
@@ -14,20 +13,21 @@ router.get('/login', async (req, res, next) => {
 
 // Login the user
 router.post('/login', async (req, res, next) => {
-    try {
-        
+    try {  
         passport.authenticate('login', (error, user) => {
             if (error) {
                 return res.render('login', { error: error.message });
-            }                
+            }                 
             
-            return res.redirect('/products/1');
+            req.login(user._id,() => {
+                return res.redirect('/products/1');
+            });
+            
         })(req);
     } catch (err) {
         next(err);
     }
 });
-
 
 // Show the login form
 router.get('/register', async (req, res, next) => {
