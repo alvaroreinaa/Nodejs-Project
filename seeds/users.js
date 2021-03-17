@@ -1,10 +1,12 @@
+const bcrypt = require('bcrypt');
+
 const users = [
     {
         type: 'admin',
         name: 'main',
         surname: 'admin',
         email: 'admin@gmail.com',
-        password: 'abc123..',
+        password: '$2b$10$QCxwjXxbZ5n138icoftfju91/I5WemlFJpc4uwGuSwiMPDEEbAB46',
         cart: [],
     },
     {
@@ -12,7 +14,7 @@ const users = [
         name: 'Alvaro',
         surname: 'Reina',
         email: 'alvaroreina@gmail.com',
-        password: 'unknown123',
+        password: '$2b$10$rF5AjmxJ6O1zvZIdKsFFYu8Z9lZf9iuWOXkcTF7hF2nfdIgUljWzm',
         cart: []
     }
 ]

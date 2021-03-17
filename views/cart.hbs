@@ -32,23 +32,28 @@
     </nav>
 
     <main class="main">
+        {{#if userCart}}
         <h1 class="main__title"> Your cart </h1>
-
-        <div class="main__cart">
-            {{#each userCart}}
-            <div class="main__product">
-                <img class="main__product-image" src="{{this.image}}" alt="Product Image">
-                <div>
-                    <p class="main__product-info"> {{ this.name }} </p>
-                    <p class="main__product-info"> {{ this.price }}&euro; </p>
+            <div class="main__cart">
+                
+                {{#each userCart}}
+                <div class="main__product">
+                    <img class="main__product-image" src="{{this.image}}" alt="Product Image">
+                    <div>
+                        <p class="main__product-info"> {{ this.name }} </p>
+                        <p class="main__product-info"> {{ this.price }}&euro; </p>
+                    </div>
                 </div>
+                {{/each}}
             </div>
-            {{/each}}
-        </div>
 
-        <div class="main__button-container">
-            <button class="main__button-buy" type="submit"> Buy </button>
-        </div>
+            <div class="main__button-container">
+                <button class="main__button-buy" type="submit"> Buy </button>
+            </div> 
+        {{else}}
+            <h1 class="main__title"> Empty cart </h1>
+        {{/if}}
+
     </main>
 
     <footer class="footer">

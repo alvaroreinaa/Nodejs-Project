@@ -4,7 +4,7 @@ const router = express.Router();
 
 router.get('/cart', async (req, res, next) => {
     try {
-        const user = await User.findById('6050960b1a2543356c58c324').populate('cart');
+        const user = await User.findById('6051e1161700b33504ed9a44').populate('cart');
         const userCart = user.cart;
         return res.status(200).render('cart', { userCart });
     } catch (err) {
