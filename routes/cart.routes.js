@@ -13,11 +13,11 @@ router.get('/cart', async (req, res, next) => {
 });
 
 
-router.put('/add-product', async (req, res, next) => {
+router.put('/add-product/:productId', async (req, res, next) => {
     try {
-        const userId = req.body.userId;
-        const productId = req.body.productId;
-
+        const userId = '6050960b1a2543356c58c324';
+        const productId = req.params.productId;
+        
         const updatedCart = await User.findByIdAndUpdate(
             userId,
             { $push: { cart: productId } },

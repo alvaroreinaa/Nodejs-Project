@@ -13,6 +13,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../css/product/product.css">
     <link rel="icon" type="image/svg" href="../images/logo.svg" />
+    <script src="/js/product.js"></script>
 </head>
 
 <body>
@@ -27,18 +28,24 @@
         <a class="navbar__menu" href="/products/1"> Products </a>
         <a class="navbar__menu" href="/login"> Login </a>
         <a class="navbar__menu" href="/register"> Register </a>
+        <a class="navbar__menu" href="/cart"> Cart </a>
     </nav>
 
     <main class="main">
         {{#if this.product}}
         <div class="main__product">
             <p class="main__product-name"> {{ this.product.name }} </p>
-            <a href="/product/{{ this.id }}"><img class="main__product-image" src="{{ this.product.image }}"></a>
+            <img class="main__product-image" src="{{ this.product.image }}">
             <p class="main__product-price"> Price: {{ this.product.price }} &euro;</p>
             <p class="main__product-description-title"> Description </p>
             <p class="main__product-description"> {{ this.product.description }}</p>
         </div>
         {{/if}}
+        
+
+        <div class="main__button-container">
+            <button class="main__button-add" id="button_add"> Add to Cart </button>
+        </div>
     </main>
 
     <footer class="footer">

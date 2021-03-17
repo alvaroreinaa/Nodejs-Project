@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-// Function that redirect to the appropiate page
+// Redirect to the appropiate page
 function getDataPage(page) {
     window.location.href = URL_PRODUCTS + page;
 }

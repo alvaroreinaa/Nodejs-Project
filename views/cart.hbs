@@ -28,18 +28,26 @@
         <a class="navbar__menu" href="/products/1"> Products </a>
         <a class="navbar__menu" href="/login"> Login </a>
         <a class="navbar__menu" href="/register"> Register </a>
+        <a class="navbar__menu" href="/cart"> Cart </a>
     </nav>
 
     <main class="main">
         <h1 class="main__title"> Your cart </h1>
+
         <div class="main__cart">
             {{#each userCart}}
             <div class="main__product">
-                {{ this.image }}
-                {{ this.name }}
-                {{ this.price }}
+                <img class="main__product-image" src="{{this.image}}" alt="Product Image">
+                <div>
+                    <p class="main__product-info"> {{ this.name }} </p>
+                    <p class="main__product-info"> {{ this.price }}&euro; </p>
+                </div>
             </div>
             {{/each}}
+        </div>
+
+        <div class="main__button-container">
+            <button class="main__button-buy" type="submit"> Buy </button>
         </div>
     </main>
 

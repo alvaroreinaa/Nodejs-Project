@@ -1,4 +1,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Merriweather+Sans&family=Mukta:wght@300&display=swap");
+.main__button-buy {
+  font-family: "Mukta", sans-serif;
+  background-color: whitesmoke;
+  font-size: 18px;
+  text-align: center;
+  border-radius: 5px;
+  border: 0px;
+  padding: 2px;
+  margin: 5px;
+}
+
 html, body {
   margin: 0px;
   padding: 0px;
@@ -60,7 +71,7 @@ body {
   margin: 4px;
   padding: 4px;
   text-decoration: none;
-  font-size: 18px;
+  font-size: 20px;
   border-bottom: 2px solid transparent;
   -webkit-transition: border-bottom-color 0.5s ease-out;
   transition: border-bottom-color 0.5s ease-out;
@@ -132,5 +143,47 @@ body {
   font-size: 28px;
   text-align: center;
   margin: 25px;
+}
+
+.main__product {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 20px;
+  margin-bottom: 50px;
+}
+
+.main__product-image {
+  height: 175px;
+  width: 200px;
+}
+
+.main__product-info {
+  font-family: "Mukta", sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 0px;
+  margin-top: 0px;
+}
+
+.main__button-container {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.main__button-buy {
+  font-size: 22px;
+  font-weight: bold;
+  width: 125px;
+  margin-top: 0px;
+  background-color: #c8c8c8;
 }
 /*# sourceMappingURL=cart.css.map */
