@@ -1,6 +1,21 @@
 @import "../global";
 
 .main {
+    &__product-image-detail {
+        width: 275px;
+        height: 250px;
+
+        @include tablets {
+            width: 350px;
+            height: 300px;
+        }
+
+        @include desktop{
+            width: 400px;
+            height: 350px;
+        }
+    }
+
     &__product-description-title {
         margin-top: 0px;
     }
@@ -12,6 +27,21 @@
         margin-bottom: 0px;
         margin-left: 10px;
         margin-right: 10px;   
+
+        @include landscape-mobile {
+            margin-left: 60px;
+            margin-right: 60px;  
+        }
+
+        @include tablets {
+            margin-left: 140px;
+            margin-right: 140px;  
+        }
+
+        @include desktop {
+            margin-left: 200px;
+            margin-right: 200px;  
+        }
     }
 
     &__button-container {
@@ -23,5 +53,9 @@
         margin-top: 20px;
         margin-bottom: 20px;
         width: 150px;
+
+        @include desktop {
+            padding: 8px;
+        }
     }
 }

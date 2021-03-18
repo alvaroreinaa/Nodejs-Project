@@ -38,7 +38,7 @@ router.get('/register', async (req, res, next) => {
     }
 });
 
-// Register the users
+// Register the new user
 router.post('/register', async (req, res, next) => {
     try {
         passport.authenticate('register', (error, user) => {

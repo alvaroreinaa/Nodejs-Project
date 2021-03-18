@@ -1,13 +1,20 @@
 @import url("https://fonts.googleapis.com/css2?family=Merriweather+Sans&family=Mukta:wght@300&display=swap");
 .main__button-buy {
   font-family: "Mukta", sans-serif;
-  background-color: whitesmoke;
-  font-size: 18px;
+  font-size: 20px;
+  font-weight: bold;
   text-align: center;
-  border-radius: 5px;
-  border: 0px;
-  padding: 2px;
-  margin: 5px;
+  text-decoration: none;
+  border: none;
+  border-radius: 8px;
+  padding: 6px 8px;
+  width: 90px;
+  margin-top: 20px;
+}
+
+.main__button-buy:hover {
+  cursor: pointer;
+  opacity: 0.7;
 }
 
 html, body {
@@ -82,6 +89,12 @@ body {
   border-bottom-color: black;
 }
 
+@media only screen and (min-width: 1200px) {
+  .navbar__menu {
+    font-size: 22px;
+  }
+}
+
 .main {
   -webkit-box-flex: 1;
       -ms-flex: 1 0 auto;
@@ -100,6 +113,15 @@ body {
       -ms-flex-align: center;
           align-items: center;
   text-align: center;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+@media only screen and (min-width: 1200px) {
+  .main__product {
+    margin-left: 40px;
+    margin-right: 40px;
+  }
 }
 
 .main__product-name, .main__product-price, .main__product-description-title {
@@ -142,7 +164,7 @@ body {
   font-weight: bold;
   font-size: 28px;
   text-align: center;
-  margin: 25px;
+  margin: 30px;
 }
 
 .main__product {
@@ -153,25 +175,59 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
   margin-left: 20px;
   margin-right: 20px;
   margin-top: 20px;
   margin-bottom: 50px;
 }
 
-.main__product-image {
-  height: 175px;
+.main__product-image-cart {
   width: 200px;
+  height: 175px;
+}
+
+@media only screen and (min-width: 576px) and (max-width: 767px) {
+  .main__product-image-cart {
+    width: 225px;
+    height: 200px;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1200px) {
+  .main__product-image-cart {
+    width: 275px;
+    height: 250px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .main__product-image-cart {
+    width: 300px;
+    height: 275px;
+  }
 }
 
 .main__product-info {
   font-family: "Mukta", sans-serif;
-  font-size: 20px;
+  font-size: 22px;
   font-weight: bold;
   margin-bottom: 0px;
   margin-top: 0px;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1200px) {
+  .main__product-info {
+    font-size: 24px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .main__product-info {
+    font-size: 24px;
+  }
 }
 
 .main__button-container {
@@ -180,10 +236,14 @@ body {
 }
 
 .main__button-buy {
-  font-size: 22px;
-  font-weight: bold;
   width: 125px;
   margin-top: 0px;
   background-color: #c8c8c8;
+}
+
+@media only screen and (min-width: 1200px) {
+  .main__button-buy {
+    padding: 8px;
+  }
 }
 /*# sourceMappingURL=cart.css.map */

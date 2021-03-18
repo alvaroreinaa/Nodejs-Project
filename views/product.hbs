@@ -39,17 +39,18 @@
         {{#if this.product}}
         <div class="main__product">
             <p class="main__product-name"> {{ this.product.name }} </p>
-            <img class="main__product-image" src="{{ this.product.image }}">
+            <img class="main__product-image-detail" src="{{ this.product.image }}">
             <p class="main__product-price"> Price: {{ this.product.price }} &euro;</p>
             <p class="main__product-description-title"> Description </p>
             <p class="main__product-description"> {{ this.product.description }}</p>
         </div>
         {{/if}}
         
-
-        <div class="main__button-container">
-            <button class="main__button-add" id="button_add"> Add to Cart </button>
-        </div>
+        {{#if isUserLogin}}
+            <div class="main__button-container">
+                <button class="main__button-add" id="button_add"> Add to Cart </button>
+            </div>
+        {{/if}}
     </main>
 
     <footer class="footer">

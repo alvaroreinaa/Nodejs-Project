@@ -13,7 +13,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/css/cart/cart.css">
     <link rel="icon" type="image/svg" href="/images/logo.svg" />
-    <script src=""></script>
+    <script src="/js/cart.js"></script>
 </head>
 
 <body>
@@ -37,7 +37,7 @@
                 
                 {{#each userCart}}
                 <div class="main__product">
-                    <img class="main__product-image" src="{{this.image}}" alt="Product Image">
+                    <img class="main__product-image-cart" src="{{this.image}}" alt="Product Image">
                     <div>
                         <p class="main__product-info"> {{ this.name }} </p>
                         <p class="main__product-info"> {{ this.price }}&euro; </p>
@@ -47,7 +47,7 @@
             </div>
 
             <div class="main__button-container">
-                <button class="main__button-buy" type="submit"> Buy </button>
+                <button class="main__button-buy" id="button_buy" type="submit"> Buy </button>
             </div> 
         {{else}}
             <h1 class="main__title"> Empty cart </h1>

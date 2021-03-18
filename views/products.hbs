@@ -44,7 +44,11 @@
         {{/if}}
 
         {{#if this.productsList}}
-            <h1 class="main__title"> Welcome to our shop </h1>
+            {{#if this.user}}
+                <h1 class="main__title"> Welcome to our shop {{ this.user }} </h1>
+            {{else}}
+                <h1 class="main__title"> Welcome to our shop </h1>
+            {{/if}}
 
             <div class="main__container-inputs">
                 <p class="main__filter-field"> Search by product name </p>

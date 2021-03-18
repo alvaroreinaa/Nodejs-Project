@@ -1,11 +1,10 @@
 require('dotenv').config();
+require('./db.js');
+require('./passport');
 
 const express = require('express');
 const app = express();
-
 const PORT = process.env.PORT || 3000;
-
-require('./db.js');
 
 const path = require('path');
 app.set('views', path.join(__dirname, 'views'));
@@ -15,8 +14,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json())
 
 const passport = require('passport');
-require('./passport');
-
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
 app.use(cookieParser());

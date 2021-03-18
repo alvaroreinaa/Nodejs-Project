@@ -1,16 +1,17 @@
 // Pagination of the products lists
-URL_PRODUCTS = 'http://localhost:3000/products/'
 page = window.location.href.substring(window.location.href.lastIndexOf('/') + 1);
 page = parseInt(page)
 
-// URL for searched products
+URL_PRODUCTS = 'http://localhost:3000/products/'
 URL_SEARCHED_PRODUCTS = 'http://localhost:3000/searched_products/'
 
+// Wait until de DOM Content is loaded
 document.addEventListener('DOMContentLoaded', () => {
     var productName = document.getElementById("productName");
     var lowerPriceProduct = document.getElementById("lowerPriceProduct");
     var higherPriceProduct = document.getElementById("higherPriceProduct");
 
+    // Handle the clicks of the differents buttons
     document.getElementById('previous_page').addEventListener("click", () => {
         getDataPage(page - 1 < 1 ? page : page - 1);
     });
@@ -42,8 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-
-// Redirect to the appropiate page
+// Load the specific page indicate
 function getDataPage(page) {
     window.location.href = URL_PRODUCTS + page;
 }

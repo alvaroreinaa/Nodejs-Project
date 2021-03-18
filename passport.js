@@ -5,6 +5,7 @@ const User = require('./models/User');
 
 const saltRounds = 10;
 
+// Strategy for the register
 passport.use(
     'register',
     new LocalStrategy(
@@ -43,6 +44,7 @@ passport.use(
     )
 );
 
+// Strategy for the login
 passport.use(
     'login',
     new LocalStrategy(
@@ -69,6 +71,7 @@ passport.use(
     )
 );
 
+// To register the sessions of the users
 passport.serializeUser(async (user_id, done) => {
     done(null, user_id);
 });

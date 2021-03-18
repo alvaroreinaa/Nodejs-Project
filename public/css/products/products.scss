@@ -7,6 +7,10 @@
         font-size: 28px;
         text-align: center;
         margin: 25px;
+
+        @include desktop {
+            font-size: 30px;
+        }
     }
 
     &__container-inputs {
@@ -24,6 +28,14 @@
     &__input-name {
         @extend %input;
         width: 250px;
+
+        @include desktop {
+            width: 290px;
+        }
+
+        @include desktop {
+            width: 320px;
+        }
     }
     
     &__container-inputs-price {
@@ -40,6 +52,10 @@
     &__button-search {
         @extend %button;
         margin-bottom: 10px;
+
+        @include desktop {
+            width: 150px;
+        }
     }
 
     &__products{
@@ -47,6 +63,18 @@
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: space-around;
+        margin-left: 20px;
+        margin-right: 20px;
+
+        @include tablets {
+            margin-left: 40px;
+            margin-right: 40px;
+        }
+
+        @include desktop {
+            margin-left: 60px;
+            margin-right: 60px;
+        }
     }
 
     &__pagination {
@@ -57,9 +85,11 @@
 
     &__button-pagination {
         @extend %button;
-        width: 100px;
+        width: 120px;
         margin-bottom: 15px;
+
+        @include desktop {
+            padding: 8px;
+        }
     }
 }
-
-

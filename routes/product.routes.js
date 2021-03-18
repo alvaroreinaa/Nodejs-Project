@@ -1,5 +1,6 @@
 const express = require('express');
 const Product = require('../models/Product');
+const User = require('../models/User');
 const router = express.Router();
 
 // Show the products
@@ -11,6 +12,12 @@ router.get('/products/:page', async (req, res, next) => {
 
     try {
         const products = await Product.find().limit(resultsPerPage).skip(resultsPerPage * pagesToSkip);
+
+        if (req.user) {
+            const user = await User.findById(req.user);
+            return res.status(200).render('products', { products , productsList: true, isUserLogin: isUserLogin, user: user.name });
+        }
+        
         return res.status(200).render('products', { products , productsList: true, isUserLogin: isUserLogin });
     } catch (err) {
         next(err);
@@ -35,7 +42,7 @@ router.get('/product/:id', async (req, res, next) => {
     }
 });
 
-// Show the products filter by name
+// Show the products filtered by name
 router.get('/searched_products/:name', async (req, res, next) => {
     const isUserLogin = (req.user ? true : false);
     const name = req.params.name;
@@ -53,7 +60,7 @@ router.get('/searched_products/:name', async (req, res, next) => {
     }
 });
 
-// Show the products filter by price
+// Show the products filtered by price
 router.get('/searched_products/:lowerPrice/:higherPrice', async (req, res, next) => {
     const isUserLogin = (req.user ? true : false);
     const lowerPrice = req.params.lowerPrice;

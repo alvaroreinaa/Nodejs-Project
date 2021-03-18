@@ -11,6 +11,10 @@
         margin-right: 20px;
         font-family: $content_font;
         font-size: 22px;
+
+        @include desktop {
+            font-size: 24px;
+        }
     }
 
     &__form-label {
@@ -22,14 +26,36 @@
         @extend %input;
         width: 250px;
         margin-bottom: 10px;
+
+        @include landscape-mobile {
+            width: 325px;
+        }
+
+        @include tablets {
+            width: 400px;
+        }
+
+        @include desktop {
+            width: 400px;
+        }
     }
 
     &__form-submit {
-        @extend %input;
-        font-size: 22px;
-        font-weight: bold;
+        @extend %button;
         width: 125px;
         margin-top: 30px;
+
+        @include landscape-mobile {
+            width: 175px;
+        }
+
+        @include tablets {
+            width: 175px;
+        }
+
+        @include desktop {
+            width: 175px;
+        }
     }
 
     &__error {
