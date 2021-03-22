@@ -1,5 +1,5 @@
-URL_CART = 'http://localhost:3000/cart'
-URL_ADD_PRODUCT = 'http://localhost:3000/add-product/'
+URL_CART = window.location.origin + '/cart'
+URL_ADD_PRODUCT = window.location.origin + '/add-product/'
 
 // Product id to add
 productId = window.location.href.substring(window.location.href.lastIndexOf('/') + 1);

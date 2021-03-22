@@ -2,8 +2,8 @@
 page = window.location.href.substring(window.location.href.lastIndexOf('/') + 1);
 page = parseInt(page)
 
-URL_PRODUCTS = 'http://localhost:3000/products/'
-URL_SEARCHED_PRODUCTS = 'http://localhost:3000/searched_products/'
+URL_PRODUCTS = window.location.origin + '/products/'
+URL_SEARCHED_PRODUCTS = window.location.origin + '/searched_products/'
 
 // Wait until de DOM Content is loaded
 document.addEventListener('DOMContentLoaded', () => {

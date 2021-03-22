@@ -1,5 +1,5 @@
-URL_PRODUCTS = 'http://localhost:3000/products/1'
-URL_BUY = 'http://localhost:3000/purchase'
+URL_PRODUCTS = window.location.origin + '/products/1'
+URL_BUY = window.location.origin + '/purchase'
 
 // Wait until de DOM Content is loaded
 document.addEventListener('DOMContentLoaded', () => {

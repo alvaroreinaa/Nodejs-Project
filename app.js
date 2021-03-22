@@ -18,7 +18,7 @@ const cookieParser = require('cookie-parser');
 const session = require('express-session');
 app.use(cookieParser());
 app.use(session({ 
-    secret: 'keyboard cat', 
+    secret: process.env.SESSION_SECRET || 'keyboard cat', 
     resave: false, 
     saveUninitialized: false
 }));
