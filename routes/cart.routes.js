@@ -66,6 +66,9 @@ router.post('/purchase', async (req, res, next) => {
 router.get('/logout', async (req, res, next) => {
     try {
         req.logout();
+        req.session(() => {
+            res.clearCookie('connect.sid');
+        })
         return res.status(200).render('login');
     } catch (err) {
         next(err);

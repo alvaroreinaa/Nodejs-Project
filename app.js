@@ -16,11 +16,18 @@ app.use(express.json())
 const passport = require('passport');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
+const MongoStore = require('connect-mongo');
 app.use(cookieParser());
 app.use(session({ 
     secret: process.env.SESSION_SECRET || 'keyboard cat', 
     resave: false, 
-    saveUninitialized: false
+    saveUninitialized: false,
+    cookie: {
+        maxAge: 3600000
+    },
+    store: MongoStore.create({
+        mongoUrl: process.env.DB_URL || 'mongodb://localhost:27017/ecommerce'
+    }),
 }));
 app.use(passport.initialize());
 app.use(passport.session());
