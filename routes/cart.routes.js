@@ -6,7 +6,7 @@ const router = express.Router();
 // Show the user's cart
 router.get('/cart', async (req, res, next) => {
     try {
-        const userId = req.user;
+        const userId = req.user._conditions._id;
         const user = await User.findById(userId).populate('cart');
         const userCart = user.cart;
         return res.status(200).render('cart', { userCart });
@@ -18,7 +18,7 @@ router.get('/cart', async (req, res, next) => {
 // Add a product to the users's cart
 router.put('/add-product/:productId', async (req, res, next) => {
     try {
-        const userId = req.user;
+        const userId = req.user._conditions._id;
         const productId = req.params.productId;
         
         const updatedCart = await User.findByIdAndUpdate(
@@ -36,7 +36,7 @@ router.put('/add-product/:productId', async (req, res, next) => {
 // Buy the products in the user's cart
 router.post('/purchase', async (req, res, next) => {
     try {
-        const userId = req.user;
+        const userId = req.user._conditions._id;
         const user = await User.findById(userId).populate('cart');
         const userCart = user.cart;
         var totalPrice = 0;
@@ -63,12 +63,16 @@ router.post('/purchase', async (req, res, next) => {
 });
 
 // Logout the user
-router.get('/logout', async (req, res, next) => {
-    try {
+router.post('/logout', async (req, res, next) => {
+    if (req.user) {
         req.logout();
-        return res.status(200).render('login');
-    } catch (err) {
-        next(err);
+
+        req.session.destroy(() => {
+            res.clearCookie('connect.sid');
+            return res.status(200).render('login');
+        });
+    } else {
+      return res.sendStatus(304);  
     }
 });
 

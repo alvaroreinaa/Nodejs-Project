@@ -28,7 +28,9 @@
         <a class="navbar__menu" href="/products/1"> Products </a>
         {{#if isUserLogin}}
             <a class="navbar__menu" href="/cart"> Cart </a>
-            <a class="navbar__menu" href="/login"> Logout </a>
+            <form action="/logout" method="POST">
+                <input class="navbar__menu navbar__menu--input" type="submit" value="Logout"></input>
+            </form>
         {{else}}
             <a class="navbar__menu" href="/login"> Login </a>
             <a class="navbar__menu" href="/register"> Register </a>

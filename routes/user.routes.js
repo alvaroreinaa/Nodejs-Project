@@ -19,7 +19,7 @@ router.post('/login', async (req, res, next) => {
                 return res.render('login', { error: error.message });
             }                 
             
-            req.login(user._id, (err) => {
+            req.login(user, (err) => {
                 if (err) {
                     return res.render('login', { error: error.message });
                 }
@@ -49,7 +49,7 @@ router.post('/register', async (req, res, next) => {
                 return res.render('register', { error: error.message });
             }
     
-            req.login(user._id, (err) => {
+            req.login(user, (err) => {
                 if (err) {
                     return res.render('register', { error: error.message });
                 }

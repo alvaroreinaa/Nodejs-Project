@@ -95,6 +95,11 @@ body {
   transition: border-bottom-color 0.5s ease-out;
 }
 
+.navbar__menu--input {
+  border: 0;
+  background-color: white;
+}
+
 .navbar__menu:hover {
   cursor: pointer;
   border-bottom-color: black;

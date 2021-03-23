@@ -72,14 +72,15 @@ passport.use(
 );
 
 // To register the sessions of the users
-passport.serializeUser(async (user_id, done) => {
-    done(null, user_id);
+passport.serializeUser(async (user, done) => {
+    done(null, user._id);
 });
 
-passport.deserializeUser(async (user_id, done) => {
+passport.deserializeUser(async (userId, done) => {
     try {
-      return done(null, user_id);
+        const existingUser = User.findById(userId);
+        return done(null, existingUser);
     } catch (err) {
-      return done(err);
+        return done(err);
     }
 });

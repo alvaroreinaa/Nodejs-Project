@@ -14,7 +14,7 @@ router.get('/products/:page', async (req, res, next) => {
         const products = await Product.find().limit(resultsPerPage).skip(resultsPerPage * pagesToSkip);
 
         if (req.user) {
-            const user = await User.findById(req.user);
+            const user = await User.findById(req.user._conditions._id);
             return res.status(200).render('products', { products , productsList: true, isUserLogin: isUserLogin, user: user.name });
         }
         
